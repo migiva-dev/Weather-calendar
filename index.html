@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Calendar — Demo API Open-Meteo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-icon">🗓️</span>
+        <div>
+          <h1>Weather Calendar</h1>
+          <p class="subtitle">Demo · API pública Open-Meteo</p>
+        </div>
+      </div>
+      <div class="controls">
+        <label for="city-select" class="sr-only">Ciudad</label>
+        <select id="city-select">
+          <option value="39.4699,-0.3763,Valencia">📍 Valencia</option>
+          <option value="40.4168,-3.7038,Madrid">📍 Madrid</option>
+          <option value="41.3851,2.1734,Barcelona">📍 Barcelona</option>
+          <option value="37.3891,-5.9845,Sevilla">📍 Sevilla</option>
+          <option value="43.2630,-2.9350,Bilbao">📍 Bilbao</option>
+          <option value="48.8566,2.3522,París">📍 París</option>
+          <option value="51.5074,-0.1278,Londres">📍 Londres</option>
+          <option value="40.7128,-74.0060,Nueva York">📍 Nueva York</option>
+        </select>
+        <span class="api-badge">⚡ Open-Meteo API</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Banner informativo de la API -->
+    <section class="api-info-banner">
+      <div class="api-info-inner">
+        <div class="api-info-text">
+          <strong>API utilizada:</strong> <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a>
+          — API meteorológica pública, gratuita y sin necesidad de API key.
+          Endpoint: <code>https://api.open-meteo.com/v1/forecast</code>
+        </div>
+        <button id="show-request-btn" class="btn-outline">Ver petición API</button>
+      </div>
+      <div id="request-block" class="request-block" hidden>
+        <pre id="request-url"></pre>
+      </div>
+    </section>
+
+    <!-- Calendario semanal -->
+    <section aria-label="Calendario semanal">
+      <div id="week-grid" class="week-grid" role="list">
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Conectando con Open-Meteo...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detalle del día seleccionado -->
+    <section id="detail-panel" class="detail-panel" aria-live="polite" hidden>
+    </section>
+
+    <!-- Gráfica de temperaturas -->
+    <section class="chart-section" id="chart-section" hidden>
+      <h2 class="section-title">Temperatura semanal</h2>
+      <canvas id="temp-chart" height="120" aria-label="Gráfica de temperatura semanal"></canvas>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Datos meteorológicos proporcionados por <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a> — Licencia CC BY 4.0</p>
+    <p class="footer-note">Demo educativa · TFG · API pública externa</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
