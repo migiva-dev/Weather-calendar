@@ -12,7 +12,7 @@
  *   - timezone: auto (detecta la zona horaria por coordenadas)
  *   - forecast_days: 7 (previsión de 7 días)
  *
- * ✅ Sin API key · ✅ Gratuita · ✅ Licencia CC BY 4.0
+ *  Sin API key ·  Gratuita ·  Licencia CC BY 4.0
  */
 
 "use strict";
